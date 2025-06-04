@@ -3,24 +3,31 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link href="./output.css" rel="stylesheet">
+  <link href="./style.css" rel="stylesheet">
   <title>Home</title>
   
 </head>
 <body>
-  <nav class="bg-gray-700 flex items-center justify-center">
+  <nav class="nav-container">
       <ul class="flex space-x-8 p-4 text-2xl font-medium content-center">
-        <li><a href="./index.html" class="text-white hover:text-gray-300">Home</a></li>
-        <li><a href="./pages/about.html" class="text-white hover:text-gray-300">About</a></li>
-        <li><a href="./pages/resume.html" class="text-white hover:text-gray-300">Resume</a></li>
-        <li><a href="./pages/projects.html" class="text-white hover:text-gray-300">Projects</a></li>
-        <li><a href="./pages/blog.html" class="text-white hover:text-gray-300">Blog</a></li>
-        <li><a href="./pages/contact.html" class="text-white hover:text-gray-300">Contact</a></li>
+        <li><a href="./index.html" class="nav-link">Home</a></li>
+        <li><a href="./pages/about.html" class="nav-link">About</a></li>
+        <li><a href="./pages/resume.html" class="nav-link">Resume</a></li>
+        <li><a href="./pages/projects.html" class="nav-link">Projects</a></li>
+        <li><a href="./pages/blog.html" class="nav-link">Blog</a></li>
+        <li><a href="./pages/contact.html" class="nav-link">Contact</a></li>
       </ul>
   </nav>
 
-  <h1 class="text-3xl font-bold underline"> Hi i'm Sahel</h1>
-  <p>Full Stack Software Engineer</p>
+  <div class="flex h-screen">
+        <div class="w-1/2 bg-green-400 min-h-screen flex flex-col justify-center items-center">
+          <h1>Hi I'm Sahel</h1>
+          <h2>Full Stack Software Engineer</h2>
+          <img src="./images/profile.JPG" alt="profile image" class="rounded-full w-144 h-144 object-cover m-4 border-1 border-black"/>
+        </div>
+        <div class="w-1/2 bg-gray-600 min-h-screen"></div>
+</div>
+  </div>
 
 </body>
 </html>
