@@ -16,6 +16,13 @@
   .nav-container {
     @apply bg-gray-700 flex items-center justify-center pt-1.5 pb-1.5;
   }
+  h1 {
+    @apply text-6xl font-extrabold text-gray-200;
+  }
+
+  h2 {
+    @apply text-2xl text-gray-200 my-5;
+  }
 }
 
 @layer utilities {
@@ -26,3 +33,4 @@
     -webkit-text-stroke: 2px black;
   }
 }
+
