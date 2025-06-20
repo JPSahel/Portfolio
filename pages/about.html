@@ -1,10 +1,10 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link href="../style.css" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="../style.css" rel="stylesheet" />
   <title>About</title>
 </head>
 
@@ -21,31 +21,144 @@
   </nav>
   <div class="flex h-screen">
     <div class="w-1/2 bg-gray-600 min-h-screen flex flex-col items-center">
-      <div class="w-full flex-col px-25 my-12">
-        <h1 >About Me</h1>
-        <p class="text-1xl text-gray-200 my-5">
-          I am a third-year Information Technology student at York University, passionate about solving real-world
-          problems with innovative tech solutions.
-          My experience spans frontend and backend development,
-          data management, and application design.
-          I have worked on projects that showcase my skills in React, Node.js, Java, and Python, while constantly
-          learning and exploring new technologies.
-        </p>
+      <!--Explenation of Skills and Hobbies-->
+      <div class="w-full flex-col px-25 mt-12">
+        <h1>About Me</h1>
+        <ul class="text-gray-200 my-5 space-y-4">
+          <li>
+            Hi! I'm Sahel Sheikh, a third-year Information Technology student at
+            York University. I love building solutions that make everyday life
+            easier for the average person.
+          </li>
+          <li>
+            Growing up around computers, I've always found them a bit mystical
+            even as a child. As I got older and began to explore the vast world
+            of software and network architecture, I realized just how deep and
+            fascinating this field really is.
+          </li>
+          <li>
+            I've also always had a natural inclination for leadership. Guiding a
+            team toward a shared vision is a big responsibility and learning how
+            to make that vision strong and clear enough to inspire others has
+            been both humbling and incredibly rewarding.
+          </li>
+          <li>
+            I have hands-on experience and genuine passion for full-stack
+            development, mobile app design, and data engineering. These tools
+            allow me to bring my ideas to life and let my creativity shine when
+            tackling complex problems.
+          </li>
+          <li>
+            Outside of tech, I serve as an Event Coordinator for the Lions
+            Archery Club at York University. I'm deeply passionate about archery
+            not only because of its depth and challenge, but also because I love
+            organizing large-scale events. Solving logistical challenges and
+            seeing the smiles of attendees after a successful event is an
+            experience I always cherish.
+          </li>
+        </ul>
+      </div>
+      <div class="w-full flex-col px-25 mt-2 space-y-3">
+        <!--Skill Icons-->
         <h1>Skills</h1>
-        <h2>Programming Languages</h2>
-        <h2>Full Stack Development</h2>
-        <h2>AI/ML</h2>
+        <div class="flex-col px-2">
+          <h2>Programming languages</h2>
+          <div class="flex flex-row space-x-1.5 my-4">
+            <div class="flex flex-col items-center ">
+              <img src="../icons/python-original.svg" alt="Python" class="w-16 h-16" />
+            </div>
+
+            <div class="flex flex-col items-center">
+              <img src="../icons/azuresqldatabase-original.svg" alt="SQL" class="w-16 h-16" />
+            </div>
+
+            <div class="flex flex-col items-center">
+              <img src="../icons/php-original.svg" alt="PHP" class="w-16 h-16" />
+            </div>
+
+            <div class="flex flex-col items-center">
+              <img src="../icons/javascript-original.svg" alt="JavaScript" class="w-16 h-16" />
+            </div>
+
+            <div class="flex flex-col items-center">
+              <img src="../icons/dart-original.svg" alt="Dart" class="w-16 h-16" />
+            </div>
+
+            <div class="flex flex-col items-center">
+              <div class="w-16 h-16 flex items-center justify-center bg-gray-700 rounded-md">
+                <img src="../icons/java-original.svg" alt="Java" class="w-16 h-16" />
+              </div>
+            </div>
+
+            <div class="flex flex-col items-center">
+              <div class="flex">
+                <img src="../icons/html5-original.svg" alt="HTML5" class="w-10 h-16" />
+                <img src="../icons/css3-original.svg" alt="CSS3" class="w-10 h-16 -ml-2" />
+              </div>
+            </div>
+
+            <div class="flex flex-col items-center">
+              <img src="../icons/typescript-original.svg" alt="TypeScript" class="w-16 h-16" />
+            </div>
+          </div>
+        </div>
+
       </div>
     </div>
+    <!--Green Side Images-->
     <div class="w-1/2 bg-green-400 min-h-screen flex flex-col items-center">
       <div class="w-[780px] h-[340px] border-1 border-black rounded-lg my-10 overflow-hidden">
-        <img src="../images/archery.jpg" alt="shooting"/>
+        <img src="../images/archery.png" alt="shooting" />
       </div>
       <div class="w-[780px] h-[340px] border-1 border-black rounded-lg my-10 overflow-hidden">
-        <img src="../images/game.JPG" alt="game"/>
+        <img src="../images/archery2.png" alt="archery2" />
       </div>
     </div>
   </div>
 </body>
+<footer class="bg-gray-800 text-white py-8 w-full">
+  <div class="flex flex-col">
+    <div class="flex flex-row justify-between">
+      <div class=" flex-col flex px-4 items-center">
+        <h2 class="mb-4">Contact Me</h2>
+        <ul class="text-white space-y-0.5 ">
+          <li>
+            <ul>
+              Phone: 647-869-6144
+            </ul>
+            <ul>
+              Email: jpsahelsk@gmail.com
+            </ul>
+          </li>
+        </ul>
+      </div>
+      <div class="flex flex-row justify-between">
+        <div class="flex-col flex px-4 items-center">
+          <h2 class="mb-4">Socials</h2>
+          <ul class="text-white space-y-0.5 ">
+            <li>
+              <ul>
+                <a href="https://www.linkedin.com/in/sahel-sheikh/" target="_blank">
+                  Linkedin
+                </a>
+              </ul>
+              <ul>
+                <a href="https://github.com/JPSahel" target="_blank">
+                  Github
+                </a>
+
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="text-center mt-8">
+      <p>&copy; 2025 Sahel. All rights reserved.</p>
+    </div>
+
+  </div>
+</footer>
 
 </html>

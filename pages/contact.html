@@ -1,11 +1,13 @@
 <!doctype html>
 <html>
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="../style.css" rel="stylesheet">
   <title>Contact</title>
 </head>
+
 <body>
   <nav class="nav-container">
     <ul class="flex space-x-8 p-4 text-2xl font-medium content-center">
@@ -17,8 +19,67 @@
       <li><a href="./contact.html" class="nav-link">Contact</a></li>
     </ul>
   </nav>
-  <div class="flex h-screen flex-col w-full bg-gray-600">
-    
+  <div class="flex h-screen flex-col w-full bg-gray-600 justify-start items-center pt-14 ">
+    <h1>Contact</h1>
+    <!--Contact Form-->
+    <form class="flex flex-col h-4/6 w-3/5 bg-gray-500 my-4 items-center rounded-2xl space-x-1 px-12 space-y-2">
+      <div class="py-4 space-y-2.5 block flex-row mt-4">
+        <input class="input-container min-h-6 min-w-12" for="name" placeholder="name">
+        <input class="input-container min-h-6 min-w-12" for="email" placeholder="email">
+
+      </div>
+      <input class="input-container w-full" for="subject" placeholder="subject">
+      <textarea class="w-full message-input-container" placeholder="message"></textarea>
+      <input type="submit" class="w-24 h-12 px-2 py-2 bg-blue-300 rounded my-5 text-gray-700 hover:bg-blue-400 shadow">
+    </form>
+
   </div>
+
+  </div>
+  <footer class="bg-gray-800 text-white py-8 w-full">
+    <div class="flex flex-col">
+      <div class="flex flex-row justify-between">
+        <div class=" flex-col flex px-4 items-center">
+          <h2 class="mb-4">Contact Me</h2>
+          <ul class="text-white space-y-0.5 ">
+            <li>
+              <ul>
+                Phone: 647-869-6144
+              </ul>
+              <ul>
+                Email: jpsahelsk@gmail.com
+              </ul>
+            </li>
+          </ul>
+        </div>
+        <div class="flex flex-row justify-between">
+          <div class="flex-col flex px-4 items-center">
+            <h2 class="mb-4">Socials</h2>
+            <ul class="text-white space-y-0.5 ">
+              <li>
+                <ul>
+                  <a href="https://www.linkedin.com/in/sahel-sheikh/" target="_blank">
+                    Linkedin
+                  </a>
+                </ul>
+                <ul>
+                  <a href="https://github.com/JPSahel" target="_blank">
+                    Github
+                  </a>
+
+                </ul>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="text-center mt-8">
+        <p>&copy; 2025 Sahel. All rights reserved.</p>
+      </div>
+
+    </div>
+  </footer>
 </body>
+
 </html>
