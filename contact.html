@@ -1,0 +1,41 @@
+<!doctype html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="./style.css" rel="stylesheet">
+  <title>Contact</title>
+  <script>
+    // Set initial dark mode state immediately to prevent flickering
+    const savedDarkMode = localStorage.getItem('darkMode');
+    const isDark = savedDarkMode !== null ? savedDarkMode === 'true' : true;
+    if (isDark) {
+      document.documentElement.classList.add('dark');
+    }
+  </script>
+</head>
+
+<body>
+  <div id="header"></div>
+  <div class="flex h-screen flex-col w-full bg-gray-100 dark:bg-gray-600 justify-start items-center pt-14 ">
+    <h1>Contact</h1>
+    <!--Contact Form-->
+    <form class="flex flex-col h-4/6 w-3/5 bg-gray-300 dark:bg-gray-500 my-4 items-center rounded-2xl space-x-1 px-12 space-y-2 py-4">
+      <div class="py-4 space-y-2.5 block flex-row mt-4">
+        <input class="input-container min-h-6 min-w-12" for="name" placeholder="name">
+        <input class="input-container min-h-6 min-w-12" for="email" placeholder="email">
+
+      </div>
+      <input class="input-container w-full" for="subject" placeholder="subject">
+      <textarea class="w-full message-input-container" placeholder="message"></textarea>
+      <input type="submit" class="w-24 h-12 px-2 py-2 bg-blue-500 dark:bg-blue-300 rounded my-5 text-white dark:text-gray-700 hover:bg-blue-600 dark:hover:bg-blue-400 shadow">
+    </form>
+
+  </div>
+
+  </div>
+  <script src="script.js"></script>
+</body>
+<div id="footer"></div>
+</html>

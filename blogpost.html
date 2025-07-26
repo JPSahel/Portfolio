@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="style.css" rel="stylesheet" />
+    <title>Blog Post</title>
+    <script>
+        // Set initial dark mode state immediately to prevent flickering
+        const savedDarkMode = localStorage.getItem('darkMode');
+        const isDark = savedDarkMode !== null ? savedDarkMode === 'true' : true;
+        if (isDark) {
+            document.documentElement.classList.add('dark');
+        }
+    </script>
+</head>
+
+<body>
+    <div id="header"></div>
+    <div class="flex flex-col w-full min-h-screen bg-green-400">
+        <!-- Blog Post Header -->
+        <div class="w-full bg-gray-100 dark:bg-gray-600 py-8 px-6">
+            <div class="max-w-4xl mx-auto">
+                <h1 id="blog-title" class="text-5xl font-bold mb-4">Loading...</h1>
+                <div class="flex items-center space-x-4 text-sm">
+                    <span id="blog-date" class="text-gray-600 dark:text-gray-300">Loading...</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Blog Post Content -->
+        <div class="flex-1 flex justify-center items-start py-12 px-6">
+            <div class="max-w-4xl w-full bg-white dark:bg-gray-800 rounded-3xl shadow-lg p-8 border border-black">
+                <!-- Blog Featured Image Placeholder -->
+                <div id="featured-image-container" class="w-full h-64 bg-gray-200 dark:bg-gray-700 rounded-2xl mb-8 flex items-center justify-center overflow-hidden">
+                    <span class="text-gray-500 dark:text-gray-400 text-lg">Featured Image Placeholder</span>
+                </div>
+
+                <!-- Blog Content -->
+                <div id="blog-content" class="prose prose-lg max-w-none">
+                    <!-- Dynamic content will be loaded here -->
+                </div>
+
+                <!-- Tags Container -->
+                <div id="tags-container"
+                    class="flex flex-wrap gap-2 mt-8 pt-6 border-t border-gray-200 dark:border-gray-600">
+                    <!-- Tags will be loaded dynamically -->
+                </div>
+                <!-- Back to Blog Button -->
+                <div class="mt-8 pt-6">
+                    <a href="./blog.html"
+                        class="inline-flex items-center bg-green-600 hover:bg-green-700 text-white font-bold py-3 px-6 rounded-lg transition duration-300">
+                        <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M10 19l-7-7m0 0l7-7m-7 7h18"></path>
+                        </svg>
+                        Back to Blog
+                    </a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    </div>
+
+    <script src="./script.js"></script>
+    <script>
+        // Function to get URL parameter
+        function getURLParameter(name) {
+            const urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get(name);
+        }
+
+        // Function to load individual blog post
+        async function loadBlogPost() {
+            try {
+                const slug = getURLParameter('slug');
+                console.log('Blog slug:', slug);
+                if (!slug) {
+                    document.getElementById('blog-content').innerHTML = '<p class="text-red-500">No blog post specified.</p>';
+                    return;
+                }
+
+                console.log('Fetching posts data...');
+                const response = await fetch('/data/posts.json');
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                const posts = await response.json();
+                console.log('Posts loaded:', posts.length);
+
+                const post = posts.find(p => p.slug === slug);
+                console.log('Found post:', post);
+                if (!post) {
+                    document.getElementById('blog-content').innerHTML = '<p class="text-red-500">Blog post not found.</p>';
+                    return;
+                }
+
+                // Update page title
+                document.title = `${post.title} - Portfolio Blog`;
+
+                // Update blog title
+                document.getElementById('blog-title').textContent = post.title;
+                document.getElementById('blog-date').textContent = new Date(post.date).toLocaleDateString('en-US', {
+                    year: 'numeric',
+                    month: 'long',
+                    day: 'numeric'
+                });
+
+                // Load blog content
+                document.getElementById('blog-content').innerHTML = post.content;
+
+                // Load featured image
+                const featuredImageContainer = document.getElementById('featured-image-container');
+                if (post.image) {
+                    featuredImageContainer.innerHTML = `<img src="${post.image}" alt="${post.title}" class="w-full h-full object-cover rounded-2xl">`;
+                }
+
+                // Load tags
+                const tagsContainer = document.getElementById('tags-container');
+                tagsContainer.innerHTML = post.tags.map(tag =>
+                    `<span class="bg-green-500 text-white px-3 py-1 rounded-full text-sm">${tag}</span>`
+                ).join('');
+
+            } catch (error) {
+                console.error('Error loading blog post:', error);
+                document.getElementById('blog-content').innerHTML = '<p class="text-red-500">Error loading blog post.</p>';
+            }
+        }
+
+        // Load blog post when page loads
+        document.addEventListener('DOMContentLoaded', loadBlogPost);
+    </script>
+</body>
+<div id="footer"></div>
+
+</html>

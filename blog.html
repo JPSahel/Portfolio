@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="style.css" rel="stylesheet" />
+  <title>Blog</title>
+  <script>
+    // Set initial dark mode state immediately to prevent flickering
+    const savedDarkMode = localStorage.getItem('darkMode');
+    const isDark = savedDarkMode !== null ? savedDarkMode === 'true' : true;
+    if (isDark) {
+      document.documentElement.classList.add('dark');
+    }
+  </script>
+</head>
+
+<body>
+  <div id="header"></div>
+  <div class="flex flex-col h-screen w-full">
+    <div class="w-full h-1/7 bg-gray-100 dark:bg-gray-600 flex flex-col items-center p-4">
+      <h1>Blog</h1>
+      <h2>Here is some of my thoughts and achievements that I made</h2>
+    </div>
+    <div class="w-full h-full bg-green-400 flex flex-col p-8 justify-center space-y-5 items-center">
+      <!--Dynamic Blog Containers-->
+      <div id="blog-list" class="w-full flex flex-col space-y-5 items-center">
+        <!-- Blog posts will be loaded here dynamically -->
+      </div>
+    </div>
+  </div>
+  </div>
+  
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const blogList = document.getElementById('blog-list');
+      fetch('/data/posts.json')
+        .then(response => response.json())
+        .then(posts => {
+          posts.forEach(post => {
+            const postElement = document.createElement('div');
+            postElement.className = 'blog-container';
+            
+            // Create the blog post HTML structure
+            postElement.innerHTML = `
+              <div class="flex items-center justify-center w-2/7 h-full">
+                <div class="w-[264px] h-[164px] bg-amber-50 dark:bg-amber-100 rounded-2xl flex items-center justify-center overflow-hidden">
+                  ${post.image ? 
+                    `<img src="${post.image}" alt="${post.title}" class="w-full h-full object-cover rounded-2xl">` : 
+                    `<span class="text-gray-600 dark:text-gray-700 font-medium">Blog Post</span>`
+                  }
+                </div>
+              </div>
+              <div class="blog-detail-container">
+                <h2 class="mt-3 text-center">${post.title}</h2>
+                <h3 class="text-center mb-2">${post.excerpt}</h3>
+                <div class="flex flex-wrap gap-1 justify-center mb-2">
+                  ${post.tags.map(tag => `<span class="bg-green-600 text-white px-2 py-1 rounded-full text-xs">${tag}</span>`).join('')}
+                </div>
+                <div class="text-center text-sm text-gray-600 dark:text-gray-300">
+                  <span>${post.date}</span>
+                </div>
+              </div>
+              <div class="blog-button-container">
+                <a href="./blogpost?slug=${post.slug}" 
+                   class="bg-green-600 hover:bg-green-700 text-white font-bold py-2 px-4 rounded transition duration-300">
+                  View Post
+                </a>
+              </div>
+            `;
+            
+            // Add postElement as a child to blog list
+            blogList.appendChild(postElement);
+          });
+        })
+        .catch(error => console.error('Error loading blog posts:', error));
+    });
+  </script>
+  <script src="./script.js"></script>
+</body>
+<div id="footer"></div>
+</html>

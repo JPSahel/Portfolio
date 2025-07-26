@@ -1,59 +1,69 @@
-@import "tailwindcss";
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
 
-@tailwind utilities;
+
 
 @layer base {
-  html {
+  * {
     font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
       "Liberation Mono", "Courier New", monospace;
   }
 }
 @layer components {
   .nav-container {
-    @apply bg-gray-700 flex items-center justify-center pt-1.5 pb-1.5;
-    .nav-link {
-      @apply text-white hover:text-gray-300 text-3xl font-medium;
-    }
+    @apply bg-gray-300 dark:bg-gray-800 flex items-center justify-center pt-1.5 pb-1.5;
+  }
+  .nav-link {
+    @apply text-gray-800 dark:text-white hover:text-gray-600 dark:hover:text-gray-300 text-3xl font-medium;
   }
   .input-container {
-    @apply shadow border rounded py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow bg-gray-400;
+    @apply shadow border rounded py-2 px-3 text-gray-700 dark:text-gray-200 leading-tight focus:outline-none focus:shadow bg-gray-200 dark:bg-gray-400 border-black;
+  }
+  .input-container::placeholder {
+    @apply text-gray-500 dark:text-white;
   }
   .message-input-container {
-    @apply bg-gray-400 text-gray-700 align-text-top text-left h-3/4 py-2 px-3 leading-tight focus:outline-none focus:shadow border rounded;
+    @apply bg-gray-200 dark:bg-gray-400 text-gray-700 dark:text-gray-200 align-text-top text-left h-3/4 py-2 px-3 leading-tight focus:outline-none focus:shadow border border-black rounded;
+  }
+  .message-input-container::placeholder {
+    @apply text-gray-500 dark:text-white;
   }
   .project-item-container {
-    @apply relative w-[380px] h-[480px] bg-green-600 rounded-3xl m-8 flex flex-col items-center p-2 border;
-
-    .project-detail-container {
-      @apply flex flex-col h-1/3 items-center;
-    }
-    .project-github-button {
-      @apply absolute bottom-4 left-1/2 transform -translate-x-1/2 bg-orange-800 hover:bg-orange-700 text-white font-bold py-2 px-4 rounded flex items-center transition duration-300;
-    }
+    @apply relative w-[380px] h-[480px] bg-green-600 rounded-3xl m-8 flex flex-col items-center p-2 border border-black;
+  }
+  .project-detail-container {
+    @apply flex flex-col h-1/3 items-center;
+  }
+  .project-github-button {
+    @apply absolute bottom-4 left-1/2 transform -translate-x-1/2 bg-orange-800 hover:bg-orange-700 text-white font-bold py-2 px-4 rounded flex items-center transition duration-300;
   }
   .blog-container {
-    @apply w-[90%] h-2/7 bg-green-500 rounded-3xl flex-row flex border;
-    .blog-detail-container {
-      @apply h-full w-fit flex flex-col justify-start p-4;
-    }
-    .blog-button-container {
-      @apply ml-auto flex items-start px-5 py-5;
-    }
-
+    @apply w-[95%] h-3/5 bg-green-500 rounded-3xl flex-row flex border border-black px-7 py-7;
+  }
+  .blog-detail-container {
+    @apply h-full w-fit flex flex-col justify-start p-4 space-y-2;
+  }
+  .blog-button-container {
+    @apply ml-auto flex items-start px-5 py-5;
+  }
+  
+  .footer-container {
+    @apply bg-gray-400 dark:bg-gray-700 py-4 px-6 text-center;
   }
 
   h1 {
-    @apply text-6xl font-extrabold text-gray-200;
+    @apply text-6xl font-extrabold text-gray-800 dark:text-gray-200;
   }
 
   h2 {
-    @apply text-2xl text-gray-200;
+    @apply text-2xl text-gray-800 dark:text-gray-200;
   }
   h3 {
-    @apply text-gray-200;
+    @apply text-gray-800 dark:text-gray-200;
   }
   p {
-    @apply text-gray-200;
+    @apply text-gray-800 dark:text-gray-200;
   }
 }
 
