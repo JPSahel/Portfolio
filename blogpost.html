@@ -83,7 +83,7 @@
                 }
 
                 console.log('Fetching posts data...');
-                const response = await fetch('/data/posts.json');
+                const response = await fetch('data/posts.json');
                 if (!response.ok) {
                     throw new Error(`HTTP error! status: ${response.status}`);
                 }
